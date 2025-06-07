@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streams of Purpose</title>
+    <style>
+        body {
+            font-family: 'Verdana', Arial, sans-serif;
+            background-color: #f7fafc;
+            color: #234060;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0070B5;
+            color: white;
+            padding: 30px 0 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        .logo-container {
+            margin-bottom: 10px;
+        }
+        .logo-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0 5px 0;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.1rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        nav {
+            background-color: #194775;
+            padding: 12px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 14px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.02rem;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        nav a:hover {
+            background-color: #39b2a9;
+            color: #fff;
+        }
+        .hero {
+            background: linear-gradient(100deg, #e2f3fc 60%, #d0f4ea 100%);
+            min-height: 350px;
+            color: #1a3f5d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px 30px 20px;
+        }
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.18rem;
+            margin-bottom: 24px;
+        }
+        .btn {
+            background-color: #00C389;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            border: none;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+            transition: background 0.22s;
+        }
+        .btn:hover {
+            background-color: #007d5c;
+        }
+        .container {
+            padding: 40px 18px 30px 18px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section {
+            background-color: #fff;
+            padding: 32px 24px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 18px rgba(0,0,0,0.06);
+        }
+        .section h2 {
+            color: #0070B5;
+        }
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between;
+        }
+        .flex-box {
+            flex: 1;
+            min-width: 260px;
+            margin: 10px 0;
+            padding: 22px;
+            text-align: center;
+            background-color: #eaf6fa;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        #our-story {
+            background-color: #e8f7f0;
+            border-left: 8px solid #00C389;
+        }
+        #our-story h2 {
+            color: #194775;
+        }
+        .founders-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+        .founder-profile {
+            flex: 1;
+            min-width: 260px;
+            max-width: 320px;
+            margin: 10px;
+            background: #f3fafd;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.06);
+            padding: 18px;
+            text-align: center;
+        }
+        .founder-profile img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid #0070B5;
+            background: #fff;
+        }
+        .founder-profile h3 {
+            margin: 8px 0 3px 0;
+            color: #194775;
+        }
+        .founder-profile p {
+            font-size: 0.97rem;
+            margin-bottom: 2px;
+        }
+        .founder-contact {
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+        .structure-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .structure-list li {
+            margin-bottom: 14px;
+            padding-left: 18px;
+            position: relative;
+        }
+        .structure-list li:before {
+            content: '•';
+            color: #0070B5;
+            position: absolute;
+            left: 0;
+        }
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: flex-start;
+        }
+        .gallery-item {
+            width: 210px;
+            height: 150px;
+            border-radius: 8px;
+            background-color: #eaf6fa;
+            box-shadow: 0 0 8px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+        .gallery-placeholder {
+            width: 210px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            background: #eaf6fa;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+        footer {
+            background-color: #194775;
+            color: #fff;
+            text-align: center;
+            padding: 22px 0 10px 0;
+            position: relative;
+        }
+        .footer-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #fff;
+            margin-bottom: 7px;
+        }
+        @media (max-width: 950px) {
+            .flex-container, .founders-container, .gallery-grid {
+                flex-direction: column;
+                gap: 0;
+                align-items: center;
+            }
+            .flex-box, .founder-profile, .gallery-item, .gallery-placeholder {
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="![image1](image1)" alt="Streams of Purpose Logo">
+        </div>
+        <h1>Streams of Purpose</h1>
+        <p>Empowering communities through health, outreach, and purpose-driven service.</p>
+    </header>
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#our-story">Our Story</a>
+        <a href="#founders">Founders</a>
+        <a href="#structure">Organization Structure</a>
+        <a href="#programs">Programs</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#get-involved">Get Involved</a>
+        <a href="#donate">Donate</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section class="hero">
+        <h2>Building a Healthier, Empowered Society</h2>
+        <p>At Streams of Purpose, we believe in a world where everyone deserves access to healthcare, dignity, and opportunities to thrive. Our movement is driven by compassion, partnership, and a relentless desire to make a difference. Join us as we bring hope and change to communities that need it most.</p>
+        <a href="#donate" class="btn">Donate Now</a>
+    </section>
+    <div class="container">
+        <!-- About -->
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p>
+                Streams of Purpose is a registered community-based, non-profit organization dedicated to advancing health, social well-being, and sustainable development in underserved communities. Founded on the principles of equity, compassion, and dignity, our team is united by a shared commitment to making healthcare accessible and empowering people to lead healthier, more fulfilled lives.
+            </p>
+            <p>
+                Through innovative outreach programs, strategic partnerships, and the mobilization of passionate volunteers, we address both the immediate and long-term needs of marginalized populations. Our initiatives range from organizing medical camps and mobile clinics to providing essential supplies and educational resources. We believe that lasting change comes from holistic, purpose-driven action and invite all who share our values to join the movement.
+            </p>
+        </section>
+        <!-- Our Story -->
+        <section id="our-story" class="section">
+            <h2>Our Story</h2>
+            <p>
+                Every movement begins with an idea—a spark that ignites change. For Streams of Purpose, that spark was Andrew Otieno, who envisioned a world where healthcare, dignity, and opportunity flowed freely, without barriers.
+            </p>
+            <p>
+                Having worked in public health and seen firsthand the inequities in medical access, Andrew recognized that underserved communities didn’t just need aid; they needed long-term solutions, empowerment, and sustainable outreach. He knew this mission couldn’t be carried alone, so he shared the vision with two friends who shared his passion—Silvester Okoth and Karen Wangeci.
+            </p>
+            <p>
+                Together, they transformed an idea into action. What started as conversations about health disparities and community struggles soon became a fully realized initiative—Streams of Purpose.
+            </p>
+            <p>
+                Starting with small health camps, they organized mobile clinics, health education programs, and support initiatives, pulling in volunteers and building partnerships that could amplify their impact. Andrew, now serving as the National Officer for SCOPH, continues to guide the organization alongside Silvester and Karen, ensuring that the vision remains strong and the mission continues to grow.
+            </p>
+            <p>
+                What began as an idea shared among friends has now become a movement, proving that when purpose meets action, change is inevitable.
+            </p>
+        </section>
+        <!-- Founders -->
+        <section id="founders" class="section">
+            <h2>Meet the Founders</h2>
+            <div class="founders-container">
+                <div class="founder-profile">
+                    <img src="andrew.jpg" alt="Andrew Otieno">
+                    <h3>Andrew Otieno</h3>
+                    <p><strong>Visionary Founder & National Officer for SCOPH</strong></p>
+                    <div>
+                        <strong>About Andrew:</strong>
+                        <p>
+                            Andrew is a passionate public health champion with years of experience working on the frontlines of community healthcare. He founded Streams of Purpose driven by a belief that health is a right, not a privilege. Andrew’s leadership inspires others to act with integrity and compassion, and his vision has shaped the very foundation of this organization.
+                        </p>
+                    </div>
+                    <div class="founder-contact">
+                        <strong>Contact:</strong><br>
+                        <span>Email: andrew@email.com</span><br>
+                        <span>Phone: +254-XXX-XXXXXX</span>
+                    </div>
+                </div>
+                <div class="founder-profile">
+                    <img src="silvester.jpg" alt="Silvester Okoth">
+                    <h3>Silvester Okoth</h3>
+                    <p><strong>Co-Founder & Healthcare Advocate</strong></p>
+                    <div>
+                        <strong>About Silvester:</strong>
+                        <p>
+                            Silvester brings a wealth of experience in grassroots mobilization and healthcare advocacy. He is dedicated to empowering communities through education, health awareness, and inclusive participation. Silvester’s drive and empathy have played a pivotal role in expanding our outreach and building lasting relationships with the communities we serve.
+                        </p>
+                    </div>
+                    <div class="founder-contact">
+                        <strong>Contact:</strong><br>
+                        <span>Email: silvester@email.com</span><br>
+                        <span>Phone: +254-XXX-XXXXXX</span>
+                    </div>
+                </div>
+                <div class="founder-profile">
+                    <img src="karen.jpg" alt="Karen Wangeci">
+                    <h3>Karen Wangeci</h3>
+                    <p><strong>Co-Founder & Empowerment Strategist</strong></p>
+                    <div>
+                        <strong>About Karen:</strong>
+                        <p>
+                            Karen is a passionate advocate for social equity and empowerment. Her expertise in program strategy and her ability to connect with people fuels Streams of Purpose’s mission to nurture hope and dignity. Karen’s insights continue to help us design impactful programs that make a difference in the lives of vulnerable populations.
+                        </p>
+                    </div>
+                    <div class="founder-contact">
+                        <strong>Contact:</strong><br>
+                        <span>Email: karen@email.com</span><br>
+                        <span>Phone: +254-XXX-XXXXXX</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Org Structure -->
+        <section id="structure" class="section">
+            <h2>Organization Structure</h2>
+            <p>
+                Streams of Purpose operates with a clear and transparent organizational structure designed to ensure efficiency, accountability, and meaningful impact. Our leadership and volunteer teams work in harmony to plan, implement, and evaluate our programs.
+            </p>
+            <ul class="structure-list">
+                <li><strong>Executive Director (Founder):</strong> Provides overall vision, leadership, and represents the organization at the national and international level.</li>
+                <li><strong>Programs Lead (Health & Outreach):</strong> Develops and manages health and outreach initiatives, ensuring they meet the needs of our target communities.</li>
+                <li><strong>Finance and Partnerships Lead:</strong> Oversees budgeting, financial management, donor relations, and cultivates partnerships for sustainability and growth.</li>
+                <li><strong>Logistics & Operations Officer:</strong> Coordinates logistics for events, mobilizes resources, and ensures smooth internal operations.</li>
+                <li><strong>Communications Officer:</strong> Manages public relations, social media, branding, and stakeholder engagement to promote the organization’s image and outreach.</li>
+                <li><strong>Additional Officers:</strong> May include Monitoring & Evaluation, Gender Affairs, Volunteer Coordination, or Regional Outreach, appointed as needed.</li>
+                <li><strong>Volunteers:</strong> Play a crucial role in implementing programs, engaging communities, and supporting all organizational activities. Their dedication and passion drive our mission forward.</li>
+            </ul>
+            <p>
+                The leadership team meets regularly to plan, review, and coordinate activities, ensuring every voice is heard and every effort counts.
+            </p>
+        </section>
+        <!-- Programs -->
+        <section id="programs" class="section">
+            <h2>Our Programs</h2>
+            <div class="flex-container">
+                <div class="flex-box">
+                    <h3>Medical Outreach</h3>
+                    <p>
+                        Our medical outreach program brings vital healthcare services to remote and marginalized areas. We conduct regular medical camps, offer mobile clinics, and provide free health screenings for conditions such as hypertension, diabetes, and more. Our dedicated team of volunteers and health professionals ensure that those who need care most receive it with dignity and respect.
+                    </p>
+                </div>
+                <div class="flex-box">
+                    <h3>Health Education</h3>
+                    <p>
+                        We believe that knowledge is power. Through workshops, school visits, and community forums, we educate people on important health topics including hygiene, nutrition, maternal and child health, mental health, and prevention of communicable and non-communicable diseases. Our goal is to inspire informed choices for healthier lives.
+                    </p>
+                </div>
+                <div class="flex-box">
+                    <h3>Community Support</h3>
+                    <p>
+                        Streams of Purpose is committed to supporting the most vulnerable. We distribute food packages, hygiene kits, clothing, and educational materials to orphans, the elderly, people with disabilities, and street families. Our support programs are designed not only to provide relief but also to restore hope and dignity in every individual we reach.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Gallery -->
+        <section id="gallery" class="section">
+            <h2>Gallery</h2>
+            <p>
+                Explore moments from our medical camps, outreach events, and community activities. Each photo tells a story of hope, resilience, and the impact we are making together. <br>
+                <em>To add your own photos, simply replace the placeholders below with your favorite memories from Streams of Purpose events and initiatives.</em>
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-placeholder">Add Photo 1</div>
+                <div class="gallery-placeholder">Add Photo 2</div>
+                <div class="gallery-placeholder">Add Photo 3</div>
+                <div class="gallery-placeholder">Add Photo 4</div>
+            </div>
+            <p style="margin-top:16px;color:#666;">Share your organization moments and achievements here.</p>
+        </section>
+        <!-- Get involved -->
+        <section id="get-involved" class="section">
+            <h2>Get Involved</h2>
+            <p>
+                Streams of Purpose thrives on the energy and passion of people like you. Whether you are a volunteer eager to make a difference, a partner looking to collaborate, or a donor seeking to support purposeful work, we invite you to join our mission. Together, we can touch more lives and create lasting change.
+            </p>
+            <ul>
+                <li><strong>Volunteer:</strong> Join our team for outreach events, health camps, and community initiatives. Gain valuable experience and make a tangible impact.</li>
+                <li><strong>Partner:</strong> Collaborate with us as an individual, organization, or corporate sponsor to amplify our impact. Together, we can create sustainable solutions for communities in need.</li>
+                <li><strong>Donate:</strong> Your financial support enables us to reach more communities and provide essential services. Every donation, big or small, makes a real difference.</li>
+            </ul>
+            <a href="#contact" class="btn">Join Us</a>
+        </section>
+        <!-- Donate -->
+        <section id="donate" class="section">
+            <h2>Support Our Mission</h2>
+            <p>
+                Your generosity makes our work possible. By donating to Streams of Purpose, you are directly supporting life-changing programs that deliver healthcare, education, and hope to those in need. Every contribution, big or small, helps us build a healthier, empowered society.
+            </p>
+            <a href="#" class="btn">Make a Donation</a>
+        </section>
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <p>
+                We would love to hear from you! Reach out with your questions, partnership proposals, or to find out how you can get involved.
+            </p>
+            <p>Email: info@streamsofpurpose.org</p>
+            <p>Phone: +254-XXX-XXXXX</p>
+            <p>
+                <strong>Connect with us on social media:</strong><br>
+                <em>[Links to Facebook, Twitter, Instagram, LinkedIn, etc. – Add your actual links!]</em>
+            </p>
+        </section>
+    </div>
+    <footer>
+        <img src="![image1](image1)" alt="Streams of Purpose Logo" class="footer-logo"><br>
+        <p>© 2025 Streams of Purpose. All rights reserved.</p>
+    </footer>
+</body>
+</html>
